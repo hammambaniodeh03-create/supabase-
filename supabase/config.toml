@@ -1,0 +1,3 @@
+# Supabase CLI config. The real project is chosen at deploy time
+# with `supabase link --project-ref <id>` (see .github/workflows).
+project_id = "supabase-signup"

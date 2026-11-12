@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Account</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <!-- Progress -->
+    <ol class="steps" aria-label="Progress">
+      <li class="step is-active" data-step="1"><span>1</span>Details</li>
+      <li class="step" data-step="2"><span>2</span>Verify</li>
+      <li class="step" data-step="3"><span>3</span>Done</li>
+    </ol>
+
+    <!-- Step 1: details -->
+    <section id="step-details" class="panel is-visible">
+      <h1>Create your account</h1>
+      <p class="sub">We'll email you a verification code.</p>
+
+      <form id="details-form" novalidate>
+        <div class="row">
+          <label class="field">
+            <span>First name</span>
+            <input type="text" name="firstName" autocomplete="given-name" required />
+            <small class="error"></small>
+          </label>
+          <label class="field">
+            <span>Last name</span>
+            <input type="text" name="lastName" autocomplete="family-name" required />
+            <small class="error"></small>
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Phone number</span>
+          <input type="tel" name="phone" autocomplete="tel" placeholder="+962 7X XXX XXXX" required />
+          <small class="error"></small>
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required />
+          <small class="error"></small>
+        </label>
+
+        <p class="form-message" role="alert"></p>
+        <button type="submit" class="btn"><span class="btn-label">Submit</span></button>
+      </form>
+    </section>
+
+    <!-- Step 2: OTP -->
+    <section id="step-otp" class="panel">
+      <h1>Check your email</h1>
+      <p class="sub">Enter the code we sent to <strong id="sent-to"></strong></p>
+
+      <form id="otp-form" novalidate>
+        <div class="otp" id="otp-boxes" aria-label="Verification code"></div>
+        <p class="form-message" role="alert"></p>
+        <button type="submit" class="btn"><span class="btn-label">Submit</span></button>
+      </form>
+
+      <div class="otp-actions">
+        <button type="button" class="link" id="resend-btn">Resend code</button>
+        <button type="button" class="link" id="back-btn">Change email</button>
+      </div>
+    </section>
+
+    <!-- Step 3: success -->
+    <section id="step-success" class="panel">
+      <div class="check">
+        <svg viewBox="0 0 52 52" aria-hidden="true">
+          <circle cx="26" cy="26" r="24" />
+          <path d="M15 27 l7 7 l15 -15" />
+        </svg>
+      </div>
+      <h1>Your account is activated</h1>
+      <p class="sub">Welcome, <strong id="welcome-name"></strong>. You're all set.</p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
